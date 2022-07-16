@@ -17,7 +17,7 @@ export const Graph: React.FC<Props> = ({ data, populations }) => {
       <XAxis padding={{ right: 64 }} dataKey='年度' fontSize={14}>
         <Label fontWeight='bold' fontSize={14} value='年度' position='insideBottomRight' />
       </XAxis>
-      <YAxis tickCount={8} fontSize={14} padding={{ top: 64 }}>
+      <YAxis fontSize={14} padding={{ top: 64 }}>
         <Label fontSize={14} value='人口数' fontWeight='bold' position='insideTopLeft' />
       </YAxis>
       <Legend verticalAlign='top' />

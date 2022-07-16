@@ -28,10 +28,21 @@ const Home: NextPage<Props> = ({ prefectures }) => {
           ? list.push({ 年度: year, [prefName]: value, ...data[index] })
           : list.push({ 年度: year, [prefName]: value })
       })
-      setPopulations([...populations, prefName])
+      const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
+      setPopulations([...populations, { prefName, color: randomColor }])
+
       setData(list)
     } else {
       // 削除
+      const list: any = []
+      await data.forEach((value, index) => {
+        delete value[prefName]
+        list.push(value)
+      })
+      const newPopulations = await populations.filter((value) => value.prefName !== prefName)
+
+      setPopulations(newPopulations)
+      setData(list)
     }
   }
 

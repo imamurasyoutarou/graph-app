@@ -1,9 +1,14 @@
 import type { NextPage } from 'next'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { CheckBox } from '@/components/CheckBox'
-import { Graph } from '@/components/Graph'
 import { Layout } from '@/components/Layout'
 import { getPopulationData, getPrefecturesData } from '@/lib/resas-api'
+
+const Graph = dynamic(() => import('@/components/Graph').then((modules) => modules.Graph), {
+  ssr: false,
+})
+// NOTE: error 対応	 https://github.com/recharts/recharts/issues/2272
 
 type Props = {
   prefectures: any

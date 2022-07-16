@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
-import { CheckBox } from '@/components/CheckBox'
+import styles from '../styles/Home.module.css'
+import { CheckBoxList } from '@/components/CheckBoxList'
 import { Layout } from '@/components/Layout'
 import { getPopulationData, getPrefecturesData } from '@/lib/resas-api'
 
@@ -52,19 +53,11 @@ const Home: NextPage<Props> = ({ prefectures }) => {
 
   return (
     <Layout>
-      都道府県
-      {prefectures && (
-        <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {prefectures.map(({ prefName, prefCode }: { prefName: string; prefCode: number }) => {
-            return (
-              <li key={prefName} style={{ margin: 10 }}>
-                <CheckBox onChange={onChengeGraph} prefName={prefName} prefCode={prefCode} />
-              </li>
-            )
-          })}
-        </ul>
-      )}
-      <Graph data={data} populations={populations} />
+      <h1 className={styles.title}>都道府県</h1>
+      {prefectures && <CheckBoxList prefectures={prefectures} onChange={onChengeGraph} />}
+      <div className={styles.graph}>
+        <Graph data={data} populations={populations} />
+      </div>
     </Layout>
   )
 }

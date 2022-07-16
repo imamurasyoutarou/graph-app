@@ -7,9 +7,9 @@ type Props = {
 }
 
 export const Graph: React.FC<Props> = ({ data, populations }) => {
-  const width = window.innerWidth - 40
+  const width = window.innerWidth - 48
   return (
-    <LineChart width={width} height={500} data={data}>
+    <LineChart width={width} height={300} data={data}>
       {populations.map(({ prefName, color }: { prefName: string; color: string }) => {
         return <Line type='monotone' key={prefName} dataKey={prefName} stroke={color} />
       })}

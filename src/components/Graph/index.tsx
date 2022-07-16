@@ -1,5 +1,6 @@
 import React from 'react'
 import { CartesianGrid, Label, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
+import { useDeviceType } from '@/contexts/MediaQueryContext'
 
 type Props = {
   data: any
@@ -7,9 +8,12 @@ type Props = {
 }
 
 export const Graph: React.FC<Props> = ({ data, populations }) => {
-  const width = window.innerWidth - 48
+  const { isSmartPhone } = useDeviceType()
+  const width = !isSmartPhone ? 650 : window.innerWidth - 40
+  const height = !isSmartPhone ? 400 : 300
+
   return (
-    <LineChart width={width} height={300} data={data}>
+    <LineChart width={width} height={height} data={data}>
       {populations.map(({ prefName, color }: { prefName: string; color: string }) => {
         return <Line type='monotone' key={prefName} dataKey={prefName} stroke={color} />
       })}

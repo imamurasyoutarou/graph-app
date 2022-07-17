@@ -1,10 +1,11 @@
 import React from 'react'
 import { CartesianGrid, Label, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 import { useDeviceType } from '@/contexts/MediaQueryContext'
+import { Data, PrefecturesLines } from '@/types'
 
 type Props = {
-  data: any
-  prefecturesLines: { prefName: string; color: string }[]
+  data: Data[]
+  prefecturesLines: PrefecturesLines
 }
 
 export const Graph: React.FC<Props> = ({ data, prefecturesLines }) => {
@@ -14,7 +15,7 @@ export const Graph: React.FC<Props> = ({ data, prefecturesLines }) => {
 
   return (
     <LineChart width={width} height={height} data={data}>
-      {prefecturesLines.map(({ prefName, color }: { prefName: string; color: string }) => {
+      {prefecturesLines.map(({ prefName, color }) => {
         return <Line type='monotone' key={prefName} dataKey={prefName} stroke={color} />
       })}
       <CartesianGrid stroke='#ccc' strokeDasharray='5 5' />

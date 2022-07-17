@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import { CheckBoxList } from '@/components/CheckBoxList'
 import { Layout } from '@/components/Layout'
 import { getPopulationData, getPrefecturesData } from '@/lib/resas-api'
+import { Data, Prefectures, PrefecturesLines } from '@/types'
 
 const Graph = dynamic(() => import('@/components/Graph').then((modules) => modules.Graph) as any, {
   ssr: false,
@@ -12,26 +13,24 @@ const Graph = dynamic(() => import('@/components/Graph').then((modules) => modul
 // NOTE: error 対応	 https://github.com/recharts/recharts/issues/2272
 
 type Props = {
-  prefectures: any
+  prefectures: Prefectures
 }
 
 const Home: NextPage<Props> = ({ prefectures }) => {
-  const [data, setData] = useState<any>([])
-  const [prefecturesLines, setPrefecturesLines] = useState<{ prefName: string; color: string }[]>(
-    [],
-  )
+  const [data, setData] = useState<Data[]>([])
+  const [prefecturesLines, setPrefecturesLines] = useState<PrefecturesLines>([])
 
   const onChengeGraph = async (prefCode: number, prefName: string, checked: boolean) => {
     if (checked) {
       // 追加
       const res: any = await getPopulationData(prefCode)
       const populations = res.result.data[0].data
-      const list: any = []
+      const list: Data[] = []
       await populations.forEach(
-        ({ year, population }: { year: number; population: number }, index: number) => {
-          data.length > 0
-            ? list.push({ 年度: year, [prefName]: population, ...data[index] })
-            : list.push({ 年度: year, [prefName]: population })
+        ({ year, value }: { year: string; value: string }, index: number) => {
+          return data.length > 0
+            ? list.push({ [prefName]: value, ...data[index] })
+            : list.push({ 年度: year, [prefName]: value })
         },
       )
       const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
@@ -39,8 +38,8 @@ const Home: NextPage<Props> = ({ prefectures }) => {
       setData(list)
     } else {
       // 削除
-      const list: any = []
-      await data.forEach((value: { [x: string]: any }) => {
+      const list: Data[] = []
+      await data.forEach((value: Data) => {
         delete value[prefName]
         list.push(value)
       })

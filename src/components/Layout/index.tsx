@@ -3,7 +3,7 @@ import React from 'react'
 import styles from '@/components/Layout/style.module.css'
 import { TheHeader } from '@/components/TheHeader'
 
-interface LayoutProps {
+type LayoutProps = {
   title?: string
   children: React.ReactNode
 }

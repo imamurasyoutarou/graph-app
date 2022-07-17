@@ -1,20 +1,21 @@
 import React from 'react'
 import { CartesianGrid, Label, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 import { useDeviceType } from '@/contexts/MediaQueryContext'
+import { Data, PrefecturesLines } from '@/types'
 
 type Props = {
-  data: any
-  populations: Array<{ prefName: string; color: string }>
+  data: Data[]
+  prefecturesLines: PrefecturesLines
 }
 
-export const Graph: React.FC<Props> = ({ data, populations }) => {
+export const Graph: React.FC<Props> = ({ data, prefecturesLines }) => {
   const { isSmartPhone } = useDeviceType()
   const width = !isSmartPhone ? 650 : window.innerWidth - 40
   const height = !isSmartPhone ? 400 : 300
 
   return (
     <LineChart width={width} height={height} data={data}>
-      {populations.map(({ prefName, color }: { prefName: string; color: string }) => {
+      {prefecturesLines.map(({ prefName, color }) => {
         return <Line type='monotone' key={prefName} dataKey={prefName} stroke={color} />
       })}
       <CartesianGrid stroke='#ccc' strokeDasharray='5 5' />

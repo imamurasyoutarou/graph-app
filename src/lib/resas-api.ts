@@ -27,7 +27,7 @@ export const getPopulationData = async (prefCode: number) => {
       },
     )
     .then((results) => {
-      data = results.data
+      data = results.data.result.data[0].data
     })
     .catch(() => {
       data = null

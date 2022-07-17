@@ -3,7 +3,7 @@ import { CheckBox } from '../CheckBox'
 import styles from '@/components/CheckBoxList/style.module.css'
 
 type Props = {
-  prefectures: any
+  prefectures: { prefName: string; prefCode: number }[]
   onChange: (prefCode: number, prefName: string, checked: boolean) => void
 }
 

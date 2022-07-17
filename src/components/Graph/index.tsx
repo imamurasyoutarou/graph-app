@@ -4,17 +4,17 @@ import { useDeviceType } from '@/contexts/MediaQueryContext'
 
 type Props = {
   data: any
-  populations: Array<{ prefName: string; color: string }>
+  prefecturesLines: { prefName: string; color: string }[]
 }
 
-export const Graph: React.FC<Props> = ({ data, populations }) => {
+export const Graph: React.FC<Props> = ({ data, prefecturesLines }) => {
   const { isSmartPhone } = useDeviceType()
   const width = !isSmartPhone ? 650 : window.innerWidth - 40
   const height = !isSmartPhone ? 400 : 300
 
   return (
     <LineChart width={width} height={height} data={data}>
-      {populations.map(({ prefName, color }: { prefName: string; color: string }) => {
+      {prefecturesLines.map(({ prefName, color }: { prefName: string; color: string }) => {
         return <Line type='monotone' key={prefName} dataKey={prefName} stroke={color} />
       })}
       <CartesianGrid stroke='#ccc' strokeDasharray='5 5' />

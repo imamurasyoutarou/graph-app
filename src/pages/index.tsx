@@ -60,6 +60,7 @@ const Home: NextPage<Props> = ({ prefectures }) => {
           <RegionCheckBoxList regions={fotmatListPrefectures} onChange={onChengeGraph} />
         </div>
         <div className={styles.graph}>
+          <h1 className={styles.title}>グラフ</h1>
           <Graph data={data} prefecturesLines={prefecturesLines} />
         </div>
       </div>

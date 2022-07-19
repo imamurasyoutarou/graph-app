@@ -1,20 +1,18 @@
 .contents {
   margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 .title {
-  margin: 24px 0;
+  margin-top: 24px;
   font-size: 1.2rem;
 }
 
 @media screen and (min-width: 768px) {
   .contents {
     display: flex;
-    margin-top: 32px;
   }
-  .prefectures {
-    width: 50%;
-  }
+
   .graph {
     margin-left: 16px;
   }

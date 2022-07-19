@@ -10,8 +10,8 @@ type Props = {
 
 export const Graph: React.FC<Props> = ({ data, prefecturesLines }) => {
   const { isSmartPhone } = useDeviceType()
-  const width = !isSmartPhone ? 650 : window.innerWidth - 40
-  const height = !isSmartPhone ? 400 : 300
+  const width = !isSmartPhone ? 500 : window.innerWidth - 40
+  const height = !isSmartPhone ? 500 : 300
 
   return (
     <LineChart width={width} height={height} data={data}>

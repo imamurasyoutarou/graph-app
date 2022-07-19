@@ -54,10 +54,14 @@ const Home: NextPage<Props> = ({ prefectures }) => {
 
   return (
     <Layout>
-      <h1 className={styles.title}>都道府県</h1>
-      <RegionCheckBoxList regions={fotmatListPrefectures} onChange={onChengeGraph} />
-      <div className={styles.graph}>
-        <Graph data={data} prefecturesLines={prefecturesLines} />
+      <div className={styles.contents}>
+        <div className={styles.prefectures}>
+          <h1 className={styles.title}>都道府県</h1>
+          <RegionCheckBoxList regions={fotmatListPrefectures} onChange={onChengeGraph} />
+        </div>
+        <div className={styles.graph}>
+          <Graph data={data} prefecturesLines={prefecturesLines} />
+        </div>
       </div>
     </Layout>
   )

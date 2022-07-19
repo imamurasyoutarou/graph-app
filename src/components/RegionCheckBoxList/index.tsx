@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Accordion } from '../Accordion'
 import { CheckBox } from '../CheckBox'
 import styles from '@/components/RegionCheckBoxList/style.module.css'
@@ -11,12 +11,18 @@ type Props = {
 
 export const RegionCheckBoxList: React.FC<Props> = ({ regions, onChange }) => {
   const regionName = ['北海道', '東北', '関東', '中部', '近畿', '中国', '四国', '九州']
+  const [openAccordionName, setAccordionName] = useState('北海道')
 
   return (
     <div>
       {regions.map((region: Prefectures[], index: number) => {
         return (
-          <Accordion name={regionName[index]} key={`key_${index}`}>
+          <Accordion
+            open={openAccordionName === regionName[index]}
+            onClick={() => setAccordionName(regionName[index])}
+            name={regionName[index]}
+            key={`key_${index}`}
+          >
             <ul className={styles.list}>
               {region.map(({ prefName, prefCode }: Prefectures) => {
                 return (

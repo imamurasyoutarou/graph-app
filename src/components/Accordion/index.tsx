@@ -3,22 +3,17 @@ import styles from '@/components/Accordion/style.module.css'
 type Props = {
   name: string
   children: React.ReactNode
+  open: boolean
+  onClick: () => void
 }
 
-export const Accordion: React.FC<Props> = ({ name, children }) => {
-  const [open, setOpen] = useState(true)
-
+export const Accordion: React.FC<Props> = ({ name, children, onClick, open }) => {
   return (
     <div className={styles.container}>
-      <div
-        onClick={() => {
-          setOpen(!open)
-        }}
-        className={styles.name}
-      >
+      <div onClick={onClick} className={styles.name}>
         {name}
       </div>
-      <div style={{ display: open ? 'none' : 'inline' }}>{children}</div>
+      <div style={{ display: open ? 'inline' : 'none' }}>{children}</div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { CheckBox } from '../CheckBox'
 import styles from '@/components/RegionCheckBoxList/style.module.css'
-import { Prefectures, Regions } from '@/types'
+import { Prefectures } from '@/types'
 
 type Props = {
   regions: Array<Prefectures[]>
@@ -16,7 +16,7 @@ export const RegionCheckBoxList: React.FC<Props> = ({ regions, onChange }) => {
       {regions.map((region: Prefectures[], index: number) => {
         return (
           <div key={`key_${index}`}>
-            <div className={styles.listName}> {regionName[index]}</div>
+            <div className={styles.listName}>{regionName[index]}</div>
             <ul className={styles.list}>
               {region.map(({ prefName, prefCode }: Prefectures) => {
                 return (

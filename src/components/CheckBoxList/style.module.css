@@ -1,8 +1,0 @@
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.listItem {
-  padding: 4px;
-}

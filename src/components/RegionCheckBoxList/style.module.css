@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.listName {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.listItem {
+  padding-right: 6px;
+  margin: 8px 4px;
+}

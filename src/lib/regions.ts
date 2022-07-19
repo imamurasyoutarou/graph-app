@@ -2,7 +2,7 @@ import { hokkaidoTohoku, kanto, chubu, kinki, chugoku, shikoku, kyushu } from '@
 import { Prefectures } from '@/types'
 
 export const formatRegions = (prefectures: Prefectures[]) => {
-  const fotmatList: any = [[], [], [], [], [], [], []]
+  const fotmatList: Array<Prefectures[]> = [[], [], [], [], [], [], []]
 
   prefectures.forEach((value) => {
     if (hokkaidoTohoku.includes(value.prefName)) {

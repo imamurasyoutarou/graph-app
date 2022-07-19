@@ -1,4 +1,5 @@
 import React from 'react'
+import { Accordion } from '../Accordion'
 import { CheckBox } from '../CheckBox'
 import styles from '@/components/RegionCheckBoxList/style.module.css'
 import { Prefectures } from '@/types'
@@ -15,8 +16,7 @@ export const RegionCheckBoxList: React.FC<Props> = ({ regions, onChange }) => {
     <div>
       {regions.map((region: Prefectures[], index: number) => {
         return (
-          <div key={`key_${index}`}>
-            <div className={styles.listName}>{regionName[index]}</div>
+          <Accordion name={regionName[index]} key={`key_${index}`}>
             <ul className={styles.list}>
               {region.map(({ prefName, prefCode }: Prefectures) => {
                 return (
@@ -26,7 +26,7 @@ export const RegionCheckBoxList: React.FC<Props> = ({ regions, onChange }) => {
                 )
               })}
             </ul>
-          </div>
+          </Accordion>
         )
       })}
     </div>

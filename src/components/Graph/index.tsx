@@ -25,7 +25,7 @@ export const Graph: React.FC<Props> = ({ data, prefecturesLines }) => {
       <YAxis fontSize={12} padding={{ top: 64 }}>
         <Label fontSize={12} value='人口数' fontWeight='bold' position='insideTopLeft' />
       </YAxis>
-      <Legend verticalAlign='top' height={36} />
+      <Legend verticalAlign='top' />
       <Tooltip formatter={(value: number) => [`人口数:${value}人`]} />
     </LineChart>
   )

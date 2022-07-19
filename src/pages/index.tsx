@@ -7,7 +7,7 @@ import { RegionCheckBoxList } from '@/components/RegionCheckBoxList'
 
 import { formatRegions } from '@/lib/regions'
 import { getPopulationData, getPrefecturesData } from '@/lib/resas-api'
-import { Data, Populations, Prefectures, PrefecturesLines, Regions } from '@/types'
+import { Data, Populations, Prefectures, PrefecturesLines } from '@/types'
 
 const Graph = dynamic(() => import('@/components/Graph').then((modules) => modules.Graph) as any, {
   ssr: false,

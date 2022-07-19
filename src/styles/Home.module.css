@@ -1,5 +1,5 @@
 .contents {
-  margin-top: 40px;
+  margin-top: 32px;
 }
 
 .title {
@@ -10,7 +10,7 @@
 @media screen and (min-width: 768px) {
   .contents {
     display: flex;
-    margin-top: 40px;
+    margin-top: 32px;
   }
   .prefectures {
     width: 50%;

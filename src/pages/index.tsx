@@ -30,7 +30,7 @@ const Home: NextPage<Props> = ({ prefectures }) => {
     } else {
       // 削除
       deletePopulationsData(prefName)
-      deletePrefecturesLines()
+      deletePrefecturesLines(prefName)
     }
   }
 

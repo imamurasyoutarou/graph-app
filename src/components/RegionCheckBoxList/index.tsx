@@ -10,16 +10,20 @@ type Props = {
 }
 
 export const RegionCheckBoxList: React.FC<Props> = ({ regions, onChange }) => {
-  const regionName = ['北海道', '東北', '関東', '中部', '近畿', '中国', '四国', '九州']
-  const [openAccordionName, setAccordionName] = useState('北海道')
+  const regionName = ['北海道・東北', '関東', '中部', '近畿', '中国', '四国', '九州']
+  const [activeRegionName, setActiveRegionName] = useState<string>('北海道・東北')
+
+  const setRegionName = (regionName: string) => {
+    activeRegionName === regionName ? setActiveRegionName('') : setActiveRegionName(regionName)
+  }
 
   return (
     <div>
       {regions.map((region: Prefectures[], index: number) => {
         return (
           <Accordion
-            open={openAccordionName === regionName[index]}
-            onClick={() => setAccordionName(regionName[index])}
+            open={activeRegionName === regionName[index]}
+            onClick={() => setRegionName(regionName[index])}
             name={regionName[index]}
             key={`key_${index}`}
           >

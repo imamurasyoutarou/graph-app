@@ -6,3 +6,21 @@
 ワイヤーフレーム
 [https://dev-graph-app.vercel.app/](https://dev-graph-app.vercel.app/)
 
+
+## 環境構築
+
+```
+1. 
+git clone git@github.com:imamurasyoutarou/graph-app.git
+
+2. 
+cd graph-app
+
+3. 
+yarn
+node ver v16.16.0   .nvmrc参照 https://github.com/nvm-sh/nvm
+```
+
+
+
+

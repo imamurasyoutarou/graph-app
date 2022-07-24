@@ -18,7 +18,7 @@ cd graph-app
 
 3. 
 yarn
-node ver v16.16.0   .nvmrc参照 https://github.com/nvm-sh/nvm
+memo: node ver v16.16.0   .nvmrc参照 https://github.com/nvm-sh/nvm
 ```
 
 
